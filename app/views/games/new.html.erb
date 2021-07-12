@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>New game</h1>
+  <div class="letters">
+    <% @letters.each do |letter| %>
+     <p class="charbox"> <%= letter %> </p>
+    <% end %>
+  </div>
+  <div class="input-form">
+    What is the longest word you can find?
+    <br><br>
+    <form action="/score" method="post">
+      <input type="text" name="answer">
+      <input type="submit" value="Play">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+    </form>
+  </div>
+
+</div>
